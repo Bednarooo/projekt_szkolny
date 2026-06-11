@@ -124,6 +124,10 @@ body {
   animation: glowPulse 1.8s infinite ease-in-out;
 }
 
+.neon-btn.slower {
+  transition-delay: 2s;
+}
+
 @keyframes glowPulse {
   0%, 100% {
     box-shadow:

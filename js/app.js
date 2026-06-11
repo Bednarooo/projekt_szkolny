@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let noHovers = 0;
   let isFixed;
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  let sobel = new Audio("snd/sobel.mp3")
 
   const warning = document.getElementById("mobile-warning");
   const content = document.getElementById("card");
@@ -71,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (noHovers > 6) {
       noBtn.style.display = "none"
+      yesBtn.classList.add('slower')
       yesBtn.style.width = "100%"
     }
   }
@@ -81,5 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sadRatDiv.style.opacity = 0;
     noBtn.style.display = "none";
     yesScreen.classList.add('show')
+
+    sobel.play()
   }
 });
