@@ -22,11 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const noBtn = document.getElementById("noBtn");
   const yesBtn = document.getElementsByClassName("neon-btn").item(0);
-  console.log(yesBtn)
 
   noBtn.addEventListener("mouseenter", moveButton);
   noBtn.addEventListener("click", moveButton);
-  yesBtn.addEventListener("click", onClickedYes);// for mobile/taps
+  yesBtn.addEventListener("click", onClickedYes);
   const yesScreen = document.getElementById("yes-screen");
 
   noBtn.style.left = "50%";

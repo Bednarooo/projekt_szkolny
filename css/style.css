@@ -85,6 +85,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 30px;
 }
 
 /* card centered inside */
@@ -124,8 +125,26 @@ body {
   animation: glowPulse 1.8s infinite ease-in-out;
 }
 
-.neon-btn.slower {
-  transition-delay: 2s;
+/* Hover pulse: always bright, pulses to maximum glow */
+.neon-btn:hover {
+  animation: glowPulseMax 0.8s infinite ease-in-out;
+  transform: scale(1.05);
+}
+
+@keyframes glowPulseMax {
+  0%, 100% {
+    box-shadow:
+      0 0 15px #ff4d6d,
+      0 0 40px #ff4d6d,
+      0 0 80px rgba(255, 77, 109, 0.8);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px #ff4d6d,
+      0 0 60px #ff4d6d,
+      0 0 120px rgba(255, 77, 109, 1);
+  }
 }
 
 @keyframes glowPulse {
@@ -194,4 +213,65 @@ body {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
+}
+
+.line {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.yes-screen.show .l1 {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.yes-screen.show .l2 {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.yes-screen.show .l3 {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 1.6s;
+}
+
+.choices {
+  margin-top: 40px;
+
+  display: flex;
+  gap: 20px;
+
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.yes-screen.show .choices {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 2.4s;
+}
+
+.choice {
+  width: 140px;
+  text-align: center;
+
+  cursor: pointer;
+
+  opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.choice img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.choice:hover {
+  transform: scale(1.05);
+  opacity: 1;
 }
