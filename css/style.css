@@ -1,0 +1,193 @@
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.mobile-warning {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+
+  transition: opacity 1.6s ease, transform 0.6s ease;
+}
+
+.mobile-warning.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.mobile-title {
+  font-size: 28px;
+  margin: 0;
+  animation: fadeUp 1.8s ease forwards;
+}
+
+.mobile-subtitle {
+  font-size: 16px;
+  opacity: 0;
+  margin-top: 10px;
+  animation: fadeUp 1.8s ease 1.4s forwards;
+}
+
+.pengu {
+  width: 180px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+
+  opacity: 0;
+  transform: translateY(-10px) scale(0.9);
+
+  animation: penguIn 0.8s ease forwards;
+}
+
+@keyframes penguIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  color: white;
+  overflow: hidden;
+}
+
+/* 🔥 center EVERYTHING */
+.main {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* card centered inside */
+.card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.neon-btn {
+  font-size: 18px;
+  padding: 12px 24px;
+
+  color: pink;
+  background: transparent;
+
+  border: 2px solid pink;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  box-shadow:
+    0 0 5px #ff4d6d,
+    0 0 15px #ff4d6d,
+    0 0 30px rgba(255, 77, 109, 0.5);
+
+  transition: 0.2s ease;
+  animation: glowPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 5px #ff4d6d,
+      0 0 15px #ff4d6d,
+      0 0 25px rgba(255, 77, 109, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 10px #ff4d6d,
+      0 0 30px #ff4d6d,
+      0 0 60px rgba(255, 77, 109, 0.7);
+  }
+}
+
+/* NO button escapes screen */
+.no {
+  position: relative; /* important */
+
+  background: #444;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 10;
+
+  transition: left 0.2s ease, top 0.2s ease;
+}
+
+#sad_rat_div {
+  position: relative;
+  opacity: 0;
+  transition: 10s ease;
+  width: auto;
+}
+
+.sad_rat_img {
+  border-radius: 50%;
+}
+
+.yes-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #ff4d6d, #000);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-align: center;
+
+  opacity: 0;
+  transform: scale(1.1);
+  pointer-events: none;
+
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.yes-screen.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
