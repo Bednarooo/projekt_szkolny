@@ -147,6 +147,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const confirmBtn = document.getElementById("confirmDateBtn");
 
+  const finalScreen = document.getElementById("final-screen");
+  const summaryText = document.getElementById("summaryText");
+  const countdownEl = document.getElementById("countdown");
+  const calendarDate = document.getElementById("calendarDate");
+
+  function launchConfetti() {
+    confetti({
+      particleCount: 300,
+      spread: 180,
+      origin: { y: 0.6 }
+    });
+  }
+
+  function startCountdown(dateStr) {
+    const [day, month, year] = dateStr.split(".").map(Number);
+    const target = new Date(year, month - 1, day);
+    target.setHours(0, 0, 0, 0);
+
+    const heart = document.getElementById("heart");
+
+    function pulseHeart() {
+      heart.classList.remove("pulse");
+      void heart.offsetWidth; // reset animacji
+      heart.classList.add("pulse");
+    }
+
+    function update() {
+      const now = new Date();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        countdownEl.innerHTML = "💖 DZISIAJ!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.innerHTML = `
+      <div class="time-box">
+        <div class="time-value">${days}</div>
+        <div class="time-label">dni</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-value">${hours}</div>
+        <div class="time-label">godz</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-value">${minutes}</div>
+        <div class="time-label">min</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-value">${seconds}</div>
+        <div class="time-label">sek</div>
+      </div>
+    `;
+      pulseHeart()
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
+
   confirmBtn.addEventListener("click", () => {
 
     const date =
@@ -165,5 +233,21 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     console.log("Wybrana data:", date, "Wybor randki: ", selectedChoice);
+
+    const label = selectedChoice?.querySelector("p")?.innerText;
+
+    // 1. podsumowanie
+    summaryText.innerText = `Zaznacz sobie w kalendarzyku! 📅\n${date} • ${label} z Kacprem!`;
+
+    // 3. show screen
+    finalScreen.classList.add("show");
+
+    // 4. confetti
+    launchConfetti();
+    setTimeout(launchConfetti, 500);
+    setTimeout(launchConfetti, 1200);
+
+    // 5. countdown
+    startCountdown(date);
   });
 });

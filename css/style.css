@@ -475,3 +475,108 @@ body {
   50% { opacity: 0.6; }
   55% { opacity: 1; }
 }
+
+.final-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #ff4d6d, #000);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+  padding: 20px;
+
+  opacity: 0;
+  transform: scale(1.1);
+  pointer-events: none;
+
+  transition: 0.8s ease;
+}
+
+.final-screen.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.final-title {
+  font-size: 42px;
+  text-shadow: 0 0 20px #ff4d6d;
+}
+
+.summary {
+  font-size: 18px;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.countdown-box {
+  text-align: center;
+  padding: 15px 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,77,109,0.3);
+}
+
+#countdown {
+  font-size: 28px;
+  color: white;
+  text-shadow: 0 0 10px #ff4d6d;
+}
+
+.fake-calendar {
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.3);
+  box-shadow: 0 0 15px rgba(255,77,109,0.2);
+}
+
+.calendar-title {
+  margin-bottom: 10px;
+}
+
+.countdown-grid {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.time-box {
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,77,109,0.3);
+  box-shadow: 0 0 15px rgba(255,77,109,0.2);
+  min-width: 70px;
+}
+
+.time-value {
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 0 10px #ff4d6d;
+}
+
+.time-label {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+#heart {
+  display: inline-block;
+}
+
+#heart.pulse {
+  animation: beat 0.6s ease-in-out;
+  filter: drop-shadow(0 0 10px #ff4d6d);
+}
+
+@keyframes beat {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

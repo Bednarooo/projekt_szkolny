@@ -22,7 +22,7 @@
 
   <meta name="theme-color" content="#fafafa">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js" integrity="sha512-K/oyQtMXpxI4+K0W7H25UopjM8pzq0yrVdFdG21Fh5dBe91I40pDd9A4lzNlHPHBIP2cwZuoxaUSX0GJSObvGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
@@ -83,6 +83,18 @@
         Potwierdź ❤️
       </button>
     </div>
+  </div>
+
+  <div id="final-screen" class="final-screen">
+    <h1 class="final-title"><span id="heart">💖</span> Mamy to!</h1>
+
+    <p id="summaryText" class="summary"></p>
+
+    <div class="countdown-box">
+      <p>⏳ Do dnia naszej randki zostało:</p>
+      <div id="countdown" class="countdown-grid"></div>
+    </div>
+    <p class="final-footer">Już nie mogę się doczekać 😄</p>
   </div>
 
   <script src="js/flatpickr.js"></script>
