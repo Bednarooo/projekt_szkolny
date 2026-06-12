@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projekt szkolny</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/flatpickr.css">
+  <link rel="stylesheet" href="css/dark.css">
   <meta name="description" content="">
 
   <meta property="og:title" content="Projekt szkolny">
@@ -19,6 +21,7 @@
   <link rel="apple-touch-icon" href="icon.png">
 
   <meta name="theme-color" content="#fafafa">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js" integrity="sha512-K/oyQtMXpxI4+K0W7H25UopjM8pzq0yrVdFdG21Fh5dBe91I40pDd9A4lzNlHPHBIP2cwZuoxaUSX0GJSObvGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -44,28 +47,45 @@
   </div>
 
   <div id="yes-screen" class="yes-screen">
-    <h1>TAK!!! ❤️</h1>
+    <h1>TAK!!!</h1>
     <p>Chodźmy na randkę 😄</p>
     <p class="line l3">Co chcesz robić?</p>
 
     <div class="choices">
-      <div class="choice">
-        <img src="img/movie.jpg" />
+      <div class="choice" data-choice="movie">
+        <img src="img/movie.png" width="160px" height="100px"/>
         <p>Film 🎬</p>
       </div>
 
-      <div class="choice">
-        <img src="img/walk.jpg" />
+      <div class="choice" data-choice="walk">
+        <img src="img/walk.jpg" width="160px" height="100px"/>
         <p>Spacer 🌙</p>
       </div>
 
-      <div class="choice">
-        <img src="img/food.jpg" />
-        <p>Jedzenie 🍕</p>
+      <div class="choice" data-choice="food">
+        <img src="img/prywatka.jpg" width="160px" height="100px"/>
+        <p class="label">Prywatka 🎉</p>
+        <span class="hover-msg">Nie no bez jaj 😅</span>
       </div>
+    </div>
+    <div id="date-section" class="date-section">
+      <h2>Kiedy idziemy? 📅</h2>
+      <p>I podejrzewam, że przed obroną randkowanie Ci nie w głowie, dlatego spróbujmy po niej ☺️</p>
+
+      <input
+        type="date"
+        id="datePicker"
+        min="2026-07-01"
+        placeholder="Wybierz dzień randki"
+      >
+
+      <button id="confirmDateBtn" class="neon-btn">
+        Potwierdź ❤️
+      </button>
     </div>
   </div>
 
+  <script src="js/flatpickr.js"></script>
   <script src="js/app.js"></script>
 </body>
 

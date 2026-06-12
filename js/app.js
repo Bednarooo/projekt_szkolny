@@ -85,4 +85,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sobel.play()
   }
+
+  const choices = document.querySelectorAll('.choice');
+  const dateSection = document.getElementById('date-section');
+
+  const partyChoice = document.querySelector('[data-choice="food"]');
+  const img = partyChoice.querySelector("img");
+  const label = partyChoice.querySelector(".label");
+  const hoverMsg = partyChoice.querySelector(".hover-msg");
+
+  let converted = false;
+
+  partyChoice.addEventListener("mouseenter", () => {
+
+    if (converted) return;
+    converted = true;
+    hoverMsg.style.opacity = "1";
+
+
+    // 1. fade out
+    setTimeout(() => {
+      partyChoice.classList.add("fade-out");
+      setTimeout(() => {
+        // 2. change content while invisible
+        img.src = "img/food.jpg";
+        label.innerText = "Jedzenie 🍕";
+
+        // 3. fade in
+        partyChoice.classList.remove("fade-out");
+      }, 2000);
+    }, 2000)
+  });
+
+  partyChoice.addEventListener("mouseleave", () => {
+    hoverMsg.style.opacity = "0";
+  });
+
+  choices.forEach(choice => {
+    choice.addEventListener('click', () => {
+
+      choices.forEach(c => c.classList.remove('selected'));
+
+      choice.classList.add('selected');
+
+      dateSection.classList.add('show');
+    });
+  });
+
+  flatpickr("#datePicker", {
+    minDate: "2026-07-01",
+
+    dateFormat: "d.m.Y",
+
+    locale: {
+      firstDayOfWeek: 1,
+      locale: "pl"
+    }
+  });
+
+  const confirmBtn = document.getElementById("confirmDateBtn");
+
+  confirmBtn.addEventListener("click", () => {
+
+    const date =
+      document.getElementById("datePicker").value;
+
+    if (!date) {
+      alert("Najpierw wybierz datę ❤️");
+      return;
+    }
+
+    let selectedChoice
+    choices.forEach(choice => {
+      if (choice.classList.contains('selected')) {
+        selectedChoice = choice;
+      }
+    })
+
+    console.log("Wybrana data:", date, "Wybor randki: ", selectedChoice);
+  });
 });
