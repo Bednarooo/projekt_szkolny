@@ -387,11 +387,11 @@ body {
 
 .hover-msg {
   position: absolute;
-  bottom: -65px;
+  bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
 
-  font-size: 20px;
+  font-size: 15px;
   color: #ff4d6d;
 
   opacity: 0;
