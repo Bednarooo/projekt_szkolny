@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const warning = document.getElementById("mobile-warning");
   const content = document.getElementById("card");
   const sadRatDiv = document.getElementById("sad_rat_div");
+  const main = document.getElementById("main");
 
   if (isMobile) {
     content.style.display = "none";
@@ -82,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sadRatDiv.style.opacity = 0;
     noBtn.style.display = "none";
     yesScreen.classList.add('show')
+    main.style.display = "none"
 
     sobel.play()
   }

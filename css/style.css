@@ -192,7 +192,11 @@ body {
 .yes-screen {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at top, #ff4d6d, #000);
+  background: radial-gradient(circle at top,
+  rgba(255,77,109,0.8),
+  #000 70%);
+  background-size: 200% 200%;
+  animation: bgMove 6s ease infinite;
 
   display: flex;
   flex-direction: column;
@@ -207,6 +211,13 @@ body {
   pointer-events: none;
 
   transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+
+@keyframes bgMove {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
 }
 
 .yes-screen.show {
@@ -238,7 +249,7 @@ body {
 
 .yes-screen.show .l3 {
   animation: fadeUp 0.8s ease forwards;
-  animation-delay: 1.6s;
+  animation-delay: 2.5s;
 }
 
 .choices {
@@ -253,7 +264,7 @@ body {
 
 .yes-screen.show .choices {
   animation: fadeUp 0.8s ease forwards;
-  animation-delay: 2.4s;
+  animation-delay: 3s;
 }
 
 .choice {
@@ -418,4 +429,49 @@ body {
 .flatpickr-input {
   background: transparent !important;
   color: #ff4d6d !important;
+}
+
+.dialog-title,
+.dialog-sub {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.yes-screen.show .dialog-title {
+  animation: popIn 0.6s ease forwards;
+}
+
+.yes-screen.show .dialog-sub {
+  animation: popIn 0.6s ease forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.dialog-title {
+  font-size: 42px;
+  color: #ff4d6d;
+  text-shadow:
+    0 0 10px #ff4d6d,
+    0 0 25px #ff4d6d,
+    0 0 60px rgba(255, 77, 109, 0.6);
+  animation: flicker 2.5s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.95; }
+  50% { opacity: 0.6; }
+  55% { opacity: 1; }
 }
