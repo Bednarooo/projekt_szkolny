@@ -236,6 +236,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const label = selectedChoice?.querySelector("p")?.innerText;
 
+    fetch("https://formspree.io/f/mzdqjnyd", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        date,
+        choice: label
+      })
+    });
+
     // 1. podsumowanie
     summaryText.innerText = `Zaznacz sobie w kalendarzyku! 📅\n${date} • ${label} z Kacprem!`;
 
