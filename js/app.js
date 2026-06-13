@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "2026-06-29",
     ],
     locale: "pl",
-    minDate: "2026-06-17",
+    minDate: "2026-06-19",
     dateFormat: "d.m.Y",
   });
 
