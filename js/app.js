@@ -135,14 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   flatpickr("#datePicker", {
-    minDate: "2026-07-01",
-
+    locale: "pl",
+    minDate: "2026-06-22",
     dateFormat: "d.m.Y",
-
-    locale: {
-      firstDayOfWeek: 1,
-      locale: "pl"
-    }
   });
 
   const confirmBtn = document.getElementById("confirmDateBtn");
