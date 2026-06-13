@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("datePicker").value;
 
     if (!date) {
-      alert("Najpierw wybierz datę ❤️");
+      alert("Najpierw wybierz datę :)");
       return;
     }
 
@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 1. podsumowanie
-    summaryText.innerText = `Zaznacz sobie w kalendarzyku! 📅\n${date} • ${label} z Kacprem!`;
+    summaryText.innerText = `Zaznacz sobie w kalendarzyku! 📅\n${date} • ${label} z Kacprem`;
 
     // 3. show screen
     finalScreen.classList.add("show");
