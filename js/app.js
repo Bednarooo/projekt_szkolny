@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   flatpickr("#datePicker", {
     locale: "pl",
-    minDate: "2026-06-22",
+    minDate: "2026-06-17",
     dateFormat: "d.m.Y",
   });
 
